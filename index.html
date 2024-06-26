@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a0f7613ea2.js" crossorigin="anonymous"></script>
+    <script>
+        function openTab(tabName, event) {
+            var i;
+            var tabContents = document.getElementsByClassName("tab-contents");
+            var tabLinks = document.getElementsByClassName("tab-links");
+            for (i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove("active-tab");
+            }
+            for (i = 0; i < tabLinks.length; i++) {
+                tabLinks[i].classList.remove("active-link");
+            }
+            document.getElementById(tabName).classList.add("active-tab");
+            event.currentTarget.classList.add("active-link");
+        }
+
+        function openmenu() {
+            document.getElementById("sidemenu").style.right = "0";
+        }
+
+        function closemenu() {
+            document.getElementById("sidemenu").style.right = "-200px";
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault(); 
+            var msg = document.getElementById("msg");
+            msg.textContent = "Thank you for your message. We will get back to you soon.";
+        }
+
+        window.onload = function() {
+            document.getElementById("see-more-btn").addEventListener("click", function() {
+                var hiddenProjects = document.querySelectorAll(".project-item.hidden");
+                hiddenProjects.forEach(function(project) {
+                    project.classList.remove("hidden");
+                });
+                this.style.display = "none"; 
+            });
+        };
+    </script>
+</head>
+<body>
+<div id="header">
+    <div class="container">
+        <nav>
+            <img src="logo4.png" class="logo">
+            <ul id="sidemenu">
+                <li><a href="#header">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#project">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <i class="fa-solid fa-square-xmark" onclick="closemenu()"></i>
+            </ul>
+            <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+        </nav>
+        <div class="header-text">
+            <h1>Hi, my name is <span>Sudhanshu Jha</span></h1>
+            <p>Software Developer</p>
+        </div>
+    </div>
+</div>
+<div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">
+                <img src="image.jpg">
+            </div>
+            <div class="about-col-2">
+                <h1 class="sub-title">About Me</h1>
+                <p>As a passionate Computer science student and a dedicated sports enthusiast, I thrive on the synergy of intellectual rigor and physical challenge.
+                    With a deep interest in algorithms, coding, and technology, I enjoy solving complex problems and creating innovative digital solutions.
+                    Beyond the screen, I channel my energy into sports, where I embrace the thrill of competition and the spirit of teamwork. Balancing these dual passions, I continuously push the boundaries of what it means to excel both in the tech world and on the sports field.
+                    Whether I'm debugging code or strategizing a game plan, my drive for excellence remains unwavering. I am always eager to connect with like-minded individuals and explore opportunities that combine my love for computer science and sports.
+                </p>
+                <div class="tab-titles">
+                    <p class="tab-links active-link" onclick="openTab('certification', event)">Certifications</p>
+                    <p class="tab-links" onclick="openTab('experience', event)">Experience</p>
+                    <p class="tab-links" onclick="openTab('education', event)">Education</p>
+                </div>
+                <div class="tab-contents active-tab" id="certification">
+                    <ul>
+                        <li><span>Complete Web Development</span><br>Udemy<a href="https://www.udemy.com/certificate/UC-358aa75b-1b28-4866-8d49-1cc1d72f937b/"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+                        <li><span>Python and Django Framework</span><br>Udemy<a href="https://www.udemy.com/certificate/UC-344dcfe1-f329-465a-a89c-76a5a9ef7a47/"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="experience">
+                    <ul>
+                        <li><span>KALLIOPE</span><br>Social Media Team Lead</li>
+                        <li><span>GFG</span><br>Marketing Executive</li>
+                        <li><span>TEDX</span><br>Public Relations</li>
+                        <li><span>NSS</span><br>Student Volunteer</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="education">
+                    <ul>
+                        <li><span>2022-Present</span><br>Kalinga Institute Of Industrial Technology, Bhubaneswar, B-Tech in CSE</li>
+                        <li><span>2021</span><br>Class XII - Science, 93.4%</li>
+                        <li><span>2019</span><br>Class X - Science, 85%</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="skills">
+    <div class="container">
+        <h1 class="sub-title">My Skills</h1>
+        <div class="services-list">
+            <div>
+                <i class="fa-solid fa-chart-line"></i>
+                <h2>Data Structures & Algorithms</h2>
+                <p>In Java,</p>
+                <a href="#">learn more</a>
+            </div>
+            <div>
+                <i class="fa-brands fa-app-store-ios"></i>
+                <h2>WEB DEVELOPMENT</h2>
+                <p>
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                </ul>
+                </p>
+                <a href="#">learn more</a>
+            </div>
+            <div>
+                <i class="fa-solid fa-code"></i>
+                <h2>Object-Oriented Programming</h2>
+                <p>In Python,</p>
+                <a href="#">learn more</a>
+            </div>
+            <div>
+                <i class="fa-solid fa-code"></i>
+                <h2>Data Science</h2>
+                <p>
+                <ul>
+                    <li>Python</li>
+                    <li>Machine Learning</li>
+                    <li>Deep Learning</li>
+                    <li>TensorFlow</li>
+                    <li>PyTorch</li>
+                    <li>OpenCV</li>
+                    <li>Statistics</li>
+                </ul>
+                </p>
+                <a href="#">learn more</a>
+            </div>
+            <div>
+                <i class="fa-solid fa-globe"></i>
+                <h2>Languages</h2>
+                <p>
+                <ul>
+                    <li>C</li>
+                    <li>Python</li>
+                    <li>JavaScript</li>
+                    <li>HTML & CSS</li>
+                    <li>SQL</li>
+                    <li>Java</li>
+                </ul>
+                </p>
+                <a href="#">learn more</a>
+            </div>
+            <div>
+                <i class="fa-solid fa-globe"></i>
+                <h2>Tools and Environments</h2>
+                <p>
+                    <ul>
+                        <li>Git</li>
+                        <li>GitHub</li>
+                        <li>Node.js</li>
+                        <li>React</li>
+                        <li>Express</li>
+                        <li>PostgreSQL</li>
+                        <li>JQuery</li>
+                        <li>Django</li>
+                    </ul>
+                </p>
+                <a href="#">learn more</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="project">
+    <div class="container">
+        <h1 class="sub-title">My Projects</h1>
+        <div class="work-list">
+            <div class="work">
+                <img src="drum-kit-logo.jpg">
+                <div class="layer">
+                    <h3>Drum Kit</h3>
+                    <p>This is a Drum Kit, which is made using HTML, CSS and JavaScript, you feel like you are playing a physical drum in front of you.</p>
+                    <div class="links">
+                        <a href="https://sudhanshujha1010.github.io/DRUM-KIT-PROJECT/"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="work">
+                <img src="whether-api-website.png">
+                <div class="layer">
+                    <h3>Weather API Website</h3>
+                    <p>A Website which provides you the weather of any place you want.</p>
+                    <div class="links">
+                        <a href="https://sudhanshujha1010.github.io/weather-api/"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="work">
+                <img src="text-to-speech.jpg">
+                <div class="layer">
+                    <h3>Text to Speech Converter</h3>
+                    <p>It converts everything to speech whatever you write. It's such an amazing project, literally converts into speech whatever you speak!!!!</p>
+                    <a href="https://sudhanshujha1010.github.io/TEXT-TO-SPEECH-PROJECT/"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <button class="btn" id="see-more-btn">See More</button>
+    </div>
+</div>
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p><i class="fa-regular fa-envelope"></i> sudhanshushekharjhaaa@gmail.com</p>
+                <p><i class="fa-solid fa-phone"></i>+91 9810350309</p>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/sudhanshu-jha-16475b269"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/.sudhanshuuu.?igsh=YXN1NDlpNnJ4OTRo"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://github.com/Sudhanshujha1010"><i class="fa-brands fa-github"></i></a>
+                </div>
+                <a href="resume.pdf" class="btn btn2" download>Download CV</a>
+            </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet" onsubmit="handleSubmit(event)">
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form>
+                <span id="msg"></span>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+    <div class="container">
+        <p>&copy; 2024 Sudhanshu Jha | All rights reserved. </p>
+    </div>
+</footer>
+<script>
+    document.getElementById("see-more-btn").addEventListener("click", function() {
+        var hiddenProjects = document.querySelectorAll(".project-item.hidden");
+        hiddenProjects.forEach(function(project) {
+            project.classList.remove("hidden");
+        });
+        this.style.display = "none"; 
+    });
+</script>
+</body>
+</html>
